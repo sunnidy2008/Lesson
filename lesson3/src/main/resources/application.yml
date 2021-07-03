@@ -1,0 +1,28 @@
+# 应用名称
+spring:
+  application:
+    name: demo
+# 应用服务 WEB 访问端口
+server:
+  port: 8081
+
+name: 张三
+age: 18
+birthday: 2012/01/19
+
+user:
+  name: 张三
+  age: 18
+  birthday: 2012/01/19
+  fruit: {apple: 1,pear: 3} # map的两种写法，第一种
+  fruit1: # map的两种写法，第二种
+    orange: 11
+    banana: 10
+  animals: # 集合的第一种写法
+    - pig
+    - dog
+    - cow
+
+animals: tiger,cow,pig #集合的第二种写法
+
+

@@ -1,0 +1,20 @@
+15:23:36.107 [main] INFO  c.e.lesson17.Lesson17Application - Starting Lesson17Application using Java 1.8.0_121 on DESKTOP-R4RPDBI with PID 21248 (E:\git_rep\Lesson\lesson17\target\classes started by DELL in E:\git_rep\Lesson)
+15:23:36.114 [main] DEBUG c.e.lesson17.Lesson17Application - Running with Spring Boot v2.4.1, Spring v5.3.2
+15:23:36.114 [main] INFO  c.e.lesson17.Lesson17Application - No active profile set, falling back to default profiles: default
+15:23:38.272 [main] INFO  c.e.lesson17.Lesson17Application - Started Lesson17Application in 3.917 seconds (JVM running for 6.505)
+15:23:48.002 [http-nio-8080-exec-1] TRACE c.e.l.controller.DemoController - trace log
+15:23:48.002 [http-nio-8080-exec-1] DEBUG c.e.l.controller.DemoController - debug log
+15:23:48.003 [http-nio-8080-exec-1] INFO  c.e.l.controller.DemoController - info log
+15:23:48.005 [http-nio-8080-exec-1] WARN  c.e.l.controller.DemoController - warn log
+15:23:48.006 [http-nio-8080-exec-1] ERROR c.e.l.controller.DemoController - error log
+15:23:48.007 [http-nio-8080-exec-1] INFO  c.e.l.controller.DemoController - 请求参数：springboot 课程,结果：hello slf4j
+15:24:21.570 [main] INFO  c.e.lesson17.Lesson17Application - Starting Lesson17Application using Java 1.8.0_121 on DESKTOP-R4RPDBI with PID 12132 (E:\git_rep\Lesson\lesson17\target\classes started by DELL in E:\git_rep\Lesson)
+15:24:21.586 [main] DEBUG c.e.lesson17.Lesson17Application - Running with Spring Boot v2.4.1, Spring v5.3.2
+15:24:21.588 [main] INFO  c.e.lesson17.Lesson17Application - No active profile set, falling back to default profiles: default
+15:24:24.233 [main] INFO  c.e.lesson17.Lesson17Application - Started Lesson17Application in 4.449 seconds (JVM running for 6.961)
+15:25:03.181 [http-nio-8080-exec-1] TRACE c.e.l.controller.DemoController - trace log
+15:25:03.181 [http-nio-8080-exec-1] DEBUG c.e.l.controller.DemoController - debug log
+15:25:03.181 [http-nio-8080-exec-1] INFO  c.e.l.controller.DemoController - info log
+15:25:03.182 [http-nio-8080-exec-1] WARN  c.e.l.controller.DemoController - warn log
+15:25:03.182 [http-nio-8080-exec-1] ERROR c.e.l.controller.DemoController - error log
+15:25:03.183 [http-nio-8080-exec-1] INFO  c.e.l.controller.DemoController - 请求参数：springboot 课程,结果：hello slf4j

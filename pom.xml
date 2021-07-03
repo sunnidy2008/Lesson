@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.4.0</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+    <groupId>com.example</groupId>
+    <artifactId>Lesson</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Lesson</name>
+    <description>Demo project for Spring Boot</description>
+    <properties>
+        <java.version>1.8</java.version>
+    </properties>
+
+    <modules>
+        <module>lesson1</module>
+        <module>lesson2</module>
+        <module>lesson3</module>
+        <module>lesson4</module>
+        <module>lesson5</module>
+        <module>lesson7</module>
+        <module>lesson8</module>
+        <module>lesson9</module>
+        <module>lesson10</module>
+        <module>lesson11</module>
+        <module>lesson12</module>
+        <module>lesson13</module>
+        <module>lesson14</module>
+        <module>lesson15</module>
+        <module>lesson16</module>
+        <module>lesson17</module>
+        <module>lesson18</module>
+        <module>lesson19</module>
+        <module>lesson20</module>
+    </modules>
+
+</project>

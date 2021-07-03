@@ -1,0 +1,4 @@
+spring:
+  profiles:
+    include: test,prod
+    active: dev #多环境变量的精髓，这里确定是加载哪个配置文件！！！

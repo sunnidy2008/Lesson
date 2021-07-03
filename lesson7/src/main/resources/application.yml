@@ -1,0 +1,6 @@
+fileRoot: d:\\abc\\
+spring:
+  servlet:
+    multipart:
+      max-request-size: 10MB #限制多个文件总大小
+      max-file-size: 1MB #限制单个文件最大值

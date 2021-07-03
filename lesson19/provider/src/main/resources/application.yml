@@ -1,0 +1,27 @@
+server:
+  port: 9000
+spring:
+  #给项目来个名字
+  application:
+    name: rabbitmq-provider
+  #配置rabbitMq 服务器
+  rabbitmq:
+    host: localhost
+    port: 5672
+#    username: skywalker
+#    password: skywalker
+#    #虚拟host 可以不设置,使用server默认host
+#    virtual-host: myVirtualHost
+    listener:
+      simple:
+        acknowledge-mode: manual
+        prefetch: 0 #RabbitMQ 将消息顺序发送给多个消费者有两种模式（公平分发、轮询模式），
+                    #  区别在于公平分发的prefetch默认是1，如果设置为0就是轮询模式。
+                    #  1、公平分发：消费者1和消费者2获取到的消息内容是不同的，同一个消息只能被一个消费者获取。
+                    #  2、轮询模式： 消费者1和消费者2获取到的消息的数量是相同的，一个是消费奇数号消息，一个是偶数。
+    #确认消息已发送到交换机(Exchange)
+    publisher-confirm-type: correlated
+    #确认消息已发送到队列(Queue)
+    publisher-returns: true
+    template:
+      mandatory: true

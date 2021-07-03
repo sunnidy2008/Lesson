@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration  scan="true" scanPeriod="10 seconds">
+
+    <contextName>demo</contextName>
+
+    <!-- 彩色日志 -->
+    <!-- 彩色日志依赖的渲染类 -->
+    <conversionRule conversionWord="clr" converterClass="org.springframework.boot.logging.logback.ColorConverter" />
+    <conversionRule conversionWord="wex" converterClass="org.springframework.boot.logging.logback.WhitespaceThrowableProxyConverter" />
+    <conversionRule conversionWord="wEx" converterClass="org.springframework.boot.logging.logback.ExtendedWhitespaceThrowableProxyConverter" />
+
+    <!-- 变量定义begin-->
+    <!--默认日志格式： 时间日期 -> 日志级别 -> 线程ID -> 分隔符 -> 线程名 -> Logger名（通常对应的是类名） -> 日志内容 -->
+    <!-- 格式化输出：%date表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度 %msg：日志消息，%n是换行符-->
+    <property name="LOG_FORMAT" value="%date{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n" />
+    <!-- 定义日志存储的路径，不要配置相对路径 -->
+    <property name="FILE_DIR" value="E:/git_rep/Lesson/lesson17/log/" />
+    <!-- 彩色日志格式 -->
+    <property name="CONSOLE_LOG_FORMAT" value="${CONSOLE_LOG_FORMAT:-%clr(%d{yyyy-MM-dd HH:mm:ss.SSS}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:-%wEx}}"/>
+    <!-- 变量定义end-->
+
+    <!-- 日志输出方式定义 begin -->
+    <!-- 控制台输出日志 -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!-- 日志级别过滤INFO以下 -->
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
+        </filter>
+        <encoder>
+            <!-- 按照上面配置的LOG_FORMAT来打印日志 -->
+            <pattern>${CONSOLE_LOG_FORMAT}</pattern>
+        </encoder>
+    </appender>
+
+    <!--输出到文件 这种方式是单个日志文件保存，文件会不停的增大，除非手动删除-->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>${FILE_DIR}/spring-log.log</file>
+        <append>true</append>
+        <encoder>
+            <!-- 按照上面配置的LOG_FORMAT来打印日志 -->
+            <pattern>${LOG_FORMAT}</pattern>
+        </encoder>
+    </appender>
+
+    <!-- 滚动日志输出 每天生成一个日志文件，保存30天的日志文件。FILE用来切分文件的 -->
+    <appender name="FILE_ROLLING" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <!--日志滚动策略，按照时间滚动-->
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${FILE_DIR}/spring-log-rolling.%d{yyyy-MM-dd}.%i.log</fileNamePattern>
+            <!-- 只保留7天的日志 -->
+            <maxHistory>7</maxHistory>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <!-- 日志文件的最大大小 -->
+                <maxFileSize>10MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- 超出删除老文件 -->
+            <totalSizeCap>50MB</totalSizeCap>
+        </rollingPolicy>
+        <!--
+            以上的配置是 当日志文件的大小达到10MB时，就新建一个日志文件，当滚动日志所占控件总和超过50MB时，就将最老
+            的日志文件删除掉，最多保存7天的日志文件。超过7天也会将最老的日志文件删除。
+            需要注意的是，如果日志文件比较大，如果1个小时就创建了5个日志文件，每个10MB，那下一个小时重新生成的日志文件
+            会将上一个小时的日志文件覆盖掉，而且由于日志文件大小总和超过50MB，所以实际无法保存7天的日志文件。所以需要
+            根据实际项目确定以上参数该怎么设置
+        -->
+
+        <encoder>
+            <pattern>${LOG_FORMAT}</pattern>
+        </encoder>
+    </appender>
+    <!-- 日志输出方式定义 end -->
+
+    <!-- 日志输出级别 bgin-->
+    <!--<root level="ERROR">&lt;!&ndash;使用info级别输出日志到控制台、文件 及 滚动文件&ndash;&gt;
+        &lt;!&ndash;采用上面定义的日志输出方式确定本项目究竟将日志输出到什么地方&ndash;&gt;
+        <appender-ref ref="CONSOLE" />&lt;!&ndash;输出到终端&ndash;&gt;
+        <appender-ref ref="FILE" />&lt;!&ndash;输出到文件&ndash;&gt;
+        <appender-ref ref="FILE_ROLLING" />&lt;!&ndash;输出到文件，滚动输出，避免单个文件过大，通常采用这种方式&ndash;&gt;
+    </root>-->
+    <!-- 日志输出级别 end-->
+
+
+    <!--
+        如果采用root定义，则是所有包的日志都会打印，如果要控制只需要当前的包，则使用下面的logger的标签定义
+        name表示是打印哪个包下面的
+        level表示这个包下面什么级别的日志打印出来
+    -->
+    <logger name="com.example" level="debug">
+        <appender-ref ref="CONSOLE" />
+        <appender-ref ref="FILE_ROLLING" />
+    </logger>
+</configuration>
